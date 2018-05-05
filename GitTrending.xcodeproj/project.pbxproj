@@ -12,6 +12,9 @@
 		04B1E5E3209AF804006053BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B1E5E1209AF804006053BA /* Main.storyboard */; };
 		04B1E5E5209AF805006053BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B1E5E4209AF805006053BA /* Assets.xcassets */; };
 		04B1E5E8209AF805006053BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B1E5E6209AF805006053BA /* LaunchScreen.storyboard */; };
+		04B1E5F0209C65A1006053BA /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */; };
+		04B1E5F2209C6E76006053BA /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */; };
+		AFFA39466B73E27A634AEEB5 /* Pods_GitTrending.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C5F6ED4EC66147EC42E417 /* Pods_GitTrending.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,11 @@
 		04B1E5E4209AF805006053BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B1E5E7209AF805006053BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B1E5E9209AF805006053BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
+		04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		556E6FB7852F38C66FBE088F /* Pods-GitTrending.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitTrending.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitTrending/Pods-GitTrending.debug.xcconfig"; sourceTree = "<group>"; };
+		63C5F6ED4EC66147EC42E417 /* Pods_GitTrending.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitTrending.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E06F01F890AA9C8F23C78995 /* Pods-GitTrending.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitTrending.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitTrending/Pods-GitTrending.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFFA39466B73E27A634AEEB5 /* Pods_GitTrending.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				04B1E5DC209AF803006053BA /* GitTrending */,
 				04B1E5DB209AF803006053BA /* Products */,
+				77594ABA3845A45225D01802 /* Pods */,
+				CA04A5ED86F7FCEF363415DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +67,31 @@
 			children = (
 				04B1E5DD209AF803006053BA /* AppDelegate.swift */,
 				04B1E5DF209AF803006053BA /* ViewController.swift */,
+				04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */,
+				04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */,
 				04B1E5E1209AF804006053BA /* Main.storyboard */,
 				04B1E5E4209AF805006053BA /* Assets.xcassets */,
 				04B1E5E6209AF805006053BA /* LaunchScreen.storyboard */,
 				04B1E5E9209AF805006053BA /* Info.plist */,
 			);
 			path = GitTrending;
+			sourceTree = "<group>";
+		};
+		77594ABA3845A45225D01802 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				556E6FB7852F38C66FBE088F /* Pods-GitTrending.debug.xcconfig */,
+				E06F01F890AA9C8F23C78995 /* Pods-GitTrending.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CA04A5ED86F7FCEF363415DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63C5F6ED4EC66147EC42E417 /* Pods_GitTrending.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B1E5EC209AF805006053BA /* Build configuration list for PBXNativeTarget "GitTrending" */;
 			buildPhases = (
+				953DF61C631319A3FF5B5ECE /* [CP] Check Pods Manifest.lock */,
 				04B1E5D6209AF803006053BA /* Sources */,
 				04B1E5D7209AF803006053BA /* Frameworks */,
 				04B1E5D8209AF803006053BA /* Resources */,
+				EC23AED51D36B14D7A8F113F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +162,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		953DF61C631319A3FF5B5ECE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GitTrending-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC23AED51D36B14D7A8F113F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GitTrending/Pods-GitTrending-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GitTrending/Pods-GitTrending-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04B1E5D6209AF803006053BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B1E5F2209C6E76006053BA /* RepositoryViewController.swift in Sources */,
 				04B1E5E0209AF803006053BA /* ViewController.swift in Sources */,
 				04B1E5DE209AF803006053BA /* AppDelegate.swift in Sources */,
+				04B1E5F0209C65A1006053BA /* TrendTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,14 +351,13 @@
 		};
 		04B1E5ED209AF805006053BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 556E6FB7852F38C66FBE088F /* Pods-GitTrending.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UPVNKF4986;
 				INFOPLIST_FILE = GitTrending/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.GitTrending;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -295,14 +367,13 @@
 		};
 		04B1E5EE209AF805006053BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E06F01F890AA9C8F23C78995 /* Pods-GitTrending.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UPVNKF4986;
 				INFOPLIST_FILE = GitTrending/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.GitTrending;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
