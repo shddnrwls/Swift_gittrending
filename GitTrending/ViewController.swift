@@ -41,14 +41,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @objc func dropDownButton(){
         dropDown?.show()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TrendTableViewCell
-        cell.titleLbl.text = "crossoverJie / Java-Interview"
+        cell.titleLbl.text = "crossoverJie/Java-Interview"
         cell.contentText.text = "👨‍🎓 Java related : basic, concurrent, algorithm"
         cell.languageLbl.text = "Swift"
         cell.porkLbl.text = "120"
