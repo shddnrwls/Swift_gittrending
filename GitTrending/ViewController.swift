@@ -34,6 +34,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         dropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
             self.dropBtn.setTitle(item, for: .normal)
         }
+        getParsing()
     }
     @objc func datedropDownButton(){
         datedropDown?.show()
@@ -62,7 +63,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let selectedIndex = indexPath.row
         performSegue(withIdentifier: "showRepository", sender: self)
     }
-
+    func getParsing(){
+        let url = URL(string: "https://github.com/trending/swift")
+        print(url)
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, err) in
+            if err != nil{
+                print(err)
+                
+            }
+            else{
+                let htmlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                
+                print(htmlContent)
+            }
+        }
+        task.resume()
+    }
+    
 
 }
 
