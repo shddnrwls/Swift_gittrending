@@ -7,5 +7,6 @@ target 'GitTrending' do
 
   # Pods for GitTrending
 	pod 'DropDown'
-
+	pod 'Kanna', '~> 4.0.0'
+	pod 'Alamofire'
 end

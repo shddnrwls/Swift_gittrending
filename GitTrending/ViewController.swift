@@ -8,15 +8,21 @@
 
 import UIKit
 import DropDown
+import Kanna
+import Alamofire
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var dropDown:DropDown?
     var datedropDown:DropDown?
+    
     @IBOutlet var dropBtn: UIButton!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var datedropBtn: UIButton!
+    
+    let mainURL = "https://github.com/trending/swift"
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        getParsing()
         dropDown = DropDown()
         datedropDown = DropDown()
         
@@ -34,7 +40,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         dropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
             self.dropBtn.setTitle(item, for: .normal)
         }
-        getParsing()
+        
     }
     @objc func datedropDownButton(){
         datedropDown?.show()
@@ -64,22 +70,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         performSegue(withIdentifier: "showRepository", sender: self)
     }
     func getParsing(){
-        let url = URL(string: "https://github.com/trending/swift")
-        print(url)
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, err) in
-            if err != nil{
-                print(err)
-                
-            }
-            else{
-                let htmlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                
-                print(htmlContent)
-            }
+        guard let main = URL(string: mainURL) else {
+            print("Error: \(mainURL) doesn't seem to be a valid URL")
+            return
         }
-        task.resume()
-    }
+        do {
+            let lolMain = try String(contentsOf: main, encoding: .utf8)
+            let doc = try HTML(html: lolMain, encoding: .utf8)
+            for product in doc.xpath("//div[@class='explore-content']") {
+                
+                
+            }
+        }catch let error {
+            print("Error:\(error)")
+        }
+  
     
-
+    }
 }
 

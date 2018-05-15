@@ -1,16 +1,24 @@
 PODS:
+  - Alamofire (4.7.2)
   - DropDown (2.3.1)
+  - Kanna (4.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - DropDown
+  - Kanna (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - DropDown
+    - Kanna
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   DropDown: 20499c7b2731b0d21609af924e47c7677a2be50d
+  Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
 
-PODFILE CHECKSUM: 5a871a051602d61da0e7e1987c2c624c999fe370
+PODFILE CHECKSUM: fb9aa9d016c5661393766133d8f167c62f86f993
 
 COCOAPODS: 1.5.0
