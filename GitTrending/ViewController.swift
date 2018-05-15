@@ -78,7 +78,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let lolMain = try String(contentsOf: main, encoding: .utf8)
             let doc = try HTML(html: lolMain, encoding: .utf8)
             for product in doc.xpath("//div[@class='explore-content']") {
-                
+                if let olTag = product.at_xpath("ol"){
+                    for list in olTag.xpath("li"){
+                        if let pr = list.at_xpath("div"){
+                            if let se = pr.text, se.contains("/"){
+                                let tri = se.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                                print(tri)
+                                
+                            }
+                        }
+                    }
+                }
                 
             }
         }catch let error {
