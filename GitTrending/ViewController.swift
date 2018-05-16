@@ -18,16 +18,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var stararr : Array<String> = Array<String>()
     var todaystararr : Array<String> = Array<String>()
     
+    @IBOutlet var navView: UIView!
     
 
     @IBOutlet var dropBtn: UIButton!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var datedropBtn: UIButton!
     
-    let mainURL = "https://github.com/trending/swift"
+    var mainURL = "https://github.com/trending"
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        print(mainURL)
+        
         getParsing()
         dropDown = DropDown()
         datedropDown = DropDown()
@@ -37,15 +40,49 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         datedropDown?.dataSource = ["today","this week","this month"]
         datedropBtn.addTarget(self, action: #selector(datedropDownButton), for: .touchUpInside)
         datedropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.datedropBtn.setTitle(item, for: .normal)
+            
+                self.datedropBtn.setTitle(item, for: .normal)
+            
         }
         dropDown?.anchorView = dropBtn
         dropDown?.bottomOffset = CGPoint(x: 0, y: (dropDown?.anchorView?.plainView.bounds.height)!)
         dropDown?.dataSource = ["All","Java","Swift","C++","JavaScript"]
         dropBtn.addTarget(self, action: #selector(dropDownButton), for: .touchUpInside)
         dropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.dropBtn.setTitle(item, for: .normal)
+            if item == "Swift"{
+                self.dropBtn.setTitle(item, for: .normal)
+                self.navView.backgroundColor = UIColor.brown
+                self.mainURL = "\(self.mainURL)/swift"
+                self.getParsing()
+            }
+            else if item == "All"{
+                self.dropBtn.setTitle(item, for: .normal)
+                self.navView.backgroundColor = UIColor.black
+                self.mainURL = "\(self.mainURL)"
+                self.getParsing()
+            }
+            else if item == "Java"{
+                self.dropBtn.setTitle(item, for: .normal)
+                self.navView.backgroundColor = UIColor.red
+                self.mainURL = "\(self.mainURL)/java"
+                self.getParsing()
+            }
+            else if item == "C++"{
+                self.dropBtn.setTitle(item, for: .normal)
+                self.navView.backgroundColor = UIColor.lightGray
+                self.mainURL = "\(self.mainURL)/c++"
+                self.getParsing()
+                
+            }
+            else{
+                self.dropBtn.setTitle(item, for: .normal)
+                self.navView.backgroundColor = UIColor.black
+                self.mainURL = "\(self.mainURL)"
+            }
+            
+            
         }
+
         
     }
     @objc func datedropDownButton(){
@@ -63,6 +100,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.starLbl.text = stararr[indexPath.row]
         cell.todayLbl.text = todaystararr[indexPath.row]
         
+        
         return cell
         
     }
@@ -78,7 +116,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    
     func getParsing(){
         guard let main = URL(string: mainURL) else {
             print("Error: \(mainURL) doesn't seem to be a valid URL")
@@ -88,12 +125,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let lolMain = try String(contentsOf: main, encoding: .utf8)
             let doc = try HTML(html: lolMain, encoding: .utf8)
             for product in doc.xpath("//div[@class='explore-content']") {
+                
                 if let olTag = product.at_xpath("ol"){
                     for list in olTag.xpath("li"){
                         if let pr = list.at_xpath("div"){
                             if let se = pr.text, se.contains("/"){
                                 let tri = se.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                                 namearr.append(tri)
+                                print("\(mainURL)")
                             }
                             
                         }
@@ -115,6 +154,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 if let todaystar2 = todaystar.text , todaystar2.contains("\n"){
                                     let todaystar3 = todaystar2.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                                     todaystararr.append(todaystar3)
+                                    
                                 }
                             }
                         }
@@ -122,6 +162,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 }
                 
             }
+            tableView.reloadData()
         }catch let error {
             print("Error:\(error)")
         }
