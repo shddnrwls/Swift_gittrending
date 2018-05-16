@@ -13,7 +13,13 @@ import Alamofire
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var dropDown:DropDown?
     var datedropDown:DropDown?
+    var namearr : Array<String> = Array<String>()
+    var constantarr : Array<String> = Array<String>()
+    var stararr : Array<String> = Array<String>()
+    var todaystararr : Array<String> = Array<String>()
     
+    
+
     @IBOutlet var dropBtn: UIButton!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var datedropBtn: UIButton!
@@ -50,17 +56,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TrendTableViewCell
-        cell.titleLbl.text = "crossoverJie/Java-Interview"
-        cell.contentText.text = "👨‍🎓 Java related : basic, concurrent, algorithm"
+        cell.titleLbl.text = namearr[indexPath.row]
+        cell.contentText.text = constantarr[indexPath.row]
         cell.languageLbl.text = "Swift"
         cell.porkLbl.text = "120"
-        cell.starLbl.text = "293"
-        cell.todayLbl.text = "399"
+        cell.starLbl.text = stararr[indexPath.row]
+        cell.todayLbl.text = todaystararr[indexPath.row]
+        
         return cell
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return namearr.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
@@ -69,6 +76,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let selectedIndex = indexPath.row
         performSegue(withIdentifier: "showRepository", sender: self)
     }
+    
+    
+    
     func getParsing(){
         guard let main = URL(string: mainURL) else {
             print("Error: \(mainURL) doesn't seem to be a valid URL")
@@ -83,8 +93,29 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         if let pr = list.at_xpath("div"){
                             if let se = pr.text, se.contains("/"){
                                 let tri = se.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                                print(tri)
-                                
+                                namearr.append(tri)
+                            }
+                            
+                        }
+                        if let con = list.at_xpath("div[@class = 'py-1']"){
+                            if let conn = con.at_xpath("p"){
+                                let connn = conn.text?.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                                constantarr.append(connn!)
+                            }
+                            
+                        }
+                        if let star = list.at_xpath("div[@class = 'f6 text-gray mt-2']"){
+                            if let star2 = star.at_xpath("a"){
+                                if let star3 = star2.text , star3.contains("\n"){
+                                    let star4 = star3.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                                    stararr.append(star4)
+                                }
+                            }
+                            if let todaystar = star.at_xpath("span[@class = 'd-inline-block float-sm-right']"){
+                                if let todaystar2 = todaystar.text , todaystar2.contains("\n"){
+                                    let todaystar3 = todaystar2.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                                    todaystararr.append(todaystar3)
+                                }
                             }
                         }
                     }
