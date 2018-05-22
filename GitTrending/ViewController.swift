@@ -10,6 +10,7 @@ import UIKit
 import DropDown
 import Kanna
 import Alamofire
+var url = "https://github.com"
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var dropDown:DropDown?
     var datedropDown:DropDown?
@@ -29,7 +30,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        print(mainURL)
+        
         
         getParsing()
         dropDown = DropDown()
@@ -53,31 +54,41 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 self.dropBtn.setTitle(item, for: .normal)
                 self.navView.backgroundColor = UIColor.brown
                 self.mainURL = "\(self.mainURL)/swift"
+                self.removeArray()
                 self.getParsing()
+                self.mainURL = "https://github.com/trending"
+                
             }
             else if item == "All"{
                 self.dropBtn.setTitle(item, for: .normal)
                 self.navView.backgroundColor = UIColor.black
                 self.mainURL = "\(self.mainURL)"
+                self.removeArray()
                 self.getParsing()
+                self.mainURL = "https://github.com/trending"
             }
             else if item == "Java"{
                 self.dropBtn.setTitle(item, for: .normal)
                 self.navView.backgroundColor = UIColor.red
                 self.mainURL = "\(self.mainURL)/java"
+                self.removeArray()
                 self.getParsing()
+                self.mainURL = "https://github.com/trending"
             }
             else if item == "C++"{
                 self.dropBtn.setTitle(item, for: .normal)
                 self.navView.backgroundColor = UIColor.lightGray
                 self.mainURL = "\(self.mainURL)/c++"
+                self.removeArray()
                 self.getParsing()
+                self.mainURL = "https://github.com/trending"
                 
             }
             else{
                 self.dropBtn.setTitle(item, for: .normal)
                 self.navView.backgroundColor = UIColor.black
                 self.mainURL = "\(self.mainURL)"
+                self.mainURL = "https://github.com/trending"
             }
             
             
@@ -111,10 +122,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return 120
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedIndex = indexPath.row
-        performSegue(withIdentifier: "showRepository", sender: self)
+        url = "\(url)/\(namearr[indexPath.row])"
+        url = url.replacingOccurrences(of: " ", with:"")
+        print(url)
+        
+        performSegue(withIdentifier: "showRepository", sender: mainURL)
+        
     }
     
+    func removeArray(){
+        namearr.removeAll()
+        stararr.removeAll()
+        todaystararr.removeAll()
+        constantarr.removeAll()
+    }
     
     func getParsing(){
         guard let main = URL(string: mainURL) else {
@@ -132,7 +153,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             if let se = pr.text, se.contains("/"){
                                 let tri = se.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                                 namearr.append(tri)
-                                print("\(mainURL)")
+                                
                             }
                             
                         }
@@ -160,7 +181,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         }
                     }
                 }
-                
             }
             tableView.reloadData()
         }catch let error {
