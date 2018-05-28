@@ -14,6 +14,7 @@
 		04B1E5E8209AF805006053BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B1E5E6209AF805006053BA /* LaunchScreen.storyboard */; };
 		04B1E5F0209C65A1006053BA /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */; };
 		04B1E5F2209C6E76006053BA /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */; };
+		04B6A34E20BBCA6100070A15 /* ParsingProtocool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6A34D20BBCA6100070A15 /* ParsingProtocool.swift */; };
 		AFFA39466B73E27A634AEEB5 /* Pods_GitTrending.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C5F6ED4EC66147EC42E417 /* Pods_GitTrending.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		04B1E5E9209AF805006053BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 		04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		04B6A34D20BBCA6100070A15 /* ParsingProtocool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingProtocool.swift; sourceTree = "<group>"; };
 		556E6FB7852F38C66FBE088F /* Pods-GitTrending.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitTrending.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitTrending/Pods-GitTrending.debug.xcconfig"; sourceTree = "<group>"; };
 		63C5F6ED4EC66147EC42E417 /* Pods_GitTrending.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitTrending.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06F01F890AA9C8F23C78995 /* Pods-GitTrending.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitTrending.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitTrending/Pods-GitTrending.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,16 +67,41 @@
 		04B1E5DC209AF803006053BA /* GitTrending */ = {
 			isa = PBXGroup;
 			children = (
+				04B6A34C20BBCA3300070A15 /* ViewControllers */,
+				04B6A34B20BBCA1E00070A15 /* ViewModel */,
+				04B6A34A20BBCA0300070A15 /* Model */,
 				04B1E5DD209AF803006053BA /* AppDelegate.swift */,
-				04B1E5DF209AF803006053BA /* ViewController.swift */,
-				04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */,
-				04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */,
 				04B1E5E1209AF804006053BA /* Main.storyboard */,
 				04B1E5E4209AF805006053BA /* Assets.xcassets */,
 				04B1E5E6209AF805006053BA /* LaunchScreen.storyboard */,
 				04B1E5E9209AF805006053BA /* Info.plist */,
 			);
 			path = GitTrending;
+			sourceTree = "<group>";
+		};
+		04B6A34A20BBCA0300070A15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04B6A34D20BBCA6100070A15 /* ParsingProtocool.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04B6A34B20BBCA1E00070A15 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04B6A34C20BBCA3300070A15 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				04B1E5DF209AF803006053BA /* ViewController.swift */,
+				04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */,
+				04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		77594ABA3845A45225D01802 /* Pods */ = {
@@ -191,6 +218,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
@@ -199,6 +227,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -218,6 +247,7 @@
 				04B1E5E0209AF803006053BA /* ViewController.swift in Sources */,
 				04B1E5DE209AF803006053BA /* AppDelegate.swift in Sources */,
 				04B1E5F0209C65A1006053BA /* TrendTableViewCell.swift in Sources */,
+				04B6A34E20BBCA6100070A15 /* ParsingProtocool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
