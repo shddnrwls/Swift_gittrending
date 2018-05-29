@@ -15,6 +15,8 @@
 		04B1E5F0209C65A1006053BA /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */; };
 		04B1E5F2209C6E76006053BA /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */; };
 		04B6A34E20BBCA6100070A15 /* ParsingProtocool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6A34D20BBCA6100070A15 /* ParsingProtocool.swift */; };
+		04B6A35020BBE7A400070A15 /* ParsingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6A34F20BBE7A400070A15 /* ParsingViewModel.swift */; };
+		04B6A35220BC070400070A15 /* ParsingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6A35120BC070400070A15 /* ParsingManager.swift */; };
 		AFFA39466B73E27A634AEEB5 /* Pods_GitTrending.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C5F6ED4EC66147EC42E417 /* Pods_GitTrending.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		04B1E5EF209C65A1006053BA /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 		04B1E5F1209C6E76006053BA /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		04B6A34D20BBCA6100070A15 /* ParsingProtocool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingProtocool.swift; sourceTree = "<group>"; };
+		04B6A34F20BBE7A400070A15 /* ParsingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingViewModel.swift; sourceTree = "<group>"; };
+		04B6A35120BC070400070A15 /* ParsingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingManager.swift; sourceTree = "<group>"; };
 		556E6FB7852F38C66FBE088F /* Pods-GitTrending.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitTrending.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitTrending/Pods-GitTrending.debug.xcconfig"; sourceTree = "<group>"; };
 		63C5F6ED4EC66147EC42E417 /* Pods_GitTrending.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitTrending.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06F01F890AA9C8F23C78995 /* Pods-GitTrending.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitTrending.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitTrending/Pods-GitTrending.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				04B6A34D20BBCA6100070A15 /* ParsingProtocool.swift */,
+				04B6A35120BC070400070A15 /* ParsingManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 		04B6A34B20BBCA1E00070A15 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04B6A34F20BBE7A400070A15 /* ParsingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -246,6 +252,8 @@
 				04B1E5F2209C6E76006053BA /* RepositoryViewController.swift in Sources */,
 				04B1E5E0209AF803006053BA /* ViewController.swift in Sources */,
 				04B1E5DE209AF803006053BA /* AppDelegate.swift in Sources */,
+				04B6A35020BBE7A400070A15 /* ParsingViewModel.swift in Sources */,
+				04B6A35220BC070400070A15 /* ParsingManager.swift in Sources */,
 				04B1E5F0209C65A1006053BA /* TrendTableViewCell.swift in Sources */,
 				04B6A34E20BBCA6100070A15 /* ParsingProtocool.swift in Sources */,
 			);
@@ -395,7 +403,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UPVNKF4986;
 				INFOPLIST_FILE = GitTrending/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.GitTrending;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -411,7 +422,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UPVNKF4986;
 				INFOPLIST_FILE = GitTrending/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift.GitTrending;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -37,7 +37,6 @@ extension ParsingProtocool{
         switch self {
         case .all(),.swift():
             return ParsingProtocool.parsingUrl
-        
         }
     }
     private var url:String {

@@ -31,7 +31,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         super.viewDidLoad()
         
-        
         getParsing()
         dropDown = DropDown()
         datedropDown = DropDown()
@@ -145,6 +144,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         do {
             let lolMain = try String(contentsOf: main, encoding: .utf8)
             let doc = try HTML(html: lolMain, encoding: .utf8)
+            
             for product in doc.xpath("//div[@class='explore-content']") {
                 
                 if let olTag = product.at_xpath("ol"){
