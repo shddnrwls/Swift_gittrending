@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04645EF420CA4C66004D5A4A /* ParsingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04645EF320CA4C66004D5A4A /* ParsingModel.swift */; };
 		04B1E5DE209AF803006053BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1E5DD209AF803006053BA /* AppDelegate.swift */; };
 		04B1E5E0209AF803006053BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1E5DF209AF803006053BA /* ViewController.swift */; };
 		04B1E5E3209AF804006053BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B1E5E1209AF804006053BA /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04645EF320CA4C66004D5A4A /* ParsingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingModel.swift; sourceTree = "<group>"; };
 		04B1E5DA209AF803006053BA /* GitTrending.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitTrending.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B1E5DD209AF803006053BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B1E5DF209AF803006053BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				04B6A34D20BBCA6100070A15 /* ParsingProtocool.swift */,
 				04B6A35120BC070400070A15 /* ParsingManager.swift */,
+				04645EF320CA4C66004D5A4A /* ParsingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				04B1E5F2209C6E76006053BA /* RepositoryViewController.swift in Sources */,
 				04B1E5E0209AF803006053BA /* ViewController.swift in Sources */,
+				04645EF420CA4C66004D5A4A /* ParsingModel.swift in Sources */,
 				04B1E5DE209AF803006053BA /* AppDelegate.swift in Sources */,
 				04B6A35020BBE7A400070A15 /* ParsingViewModel.swift in Sources */,
 				04B6A35220BC070400070A15 /* ParsingManager.swift in Sources */,

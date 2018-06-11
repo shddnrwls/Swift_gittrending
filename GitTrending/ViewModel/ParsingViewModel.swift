@@ -10,16 +10,17 @@ import RxAlamofire
 import RxSwift
 import Kanna
 import Alamofire
+enum ParsingStatus {
+    case success
+    case fail
+}
+
 
 class ParsingViewModel{
-    func allTrending(){
-        let doc:HTMLDocument = ParsingProtocool.all().getParsing() as! HTMLDocument
-        for product in doc.xpath("//div[@class='explore-content']") {
-            if let olTag = product.at_xpath("ol"){
-                print(olTag.content)
-            
-            }
-            
-        }
+    var alertObserver:PublishSubject<String> = PublishSubject<String>()
+    var statusObserver:PublishSubject<ParsingStatus> = PublishSubject<ParsingStatus>()
+    func allTrending() {
+        let model = ParsingManager.instance.allTrending()
+
     }
 }

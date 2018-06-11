@@ -13,29 +13,31 @@ import Kanna
 enum ParsingProtocool{
     case all()
     case swift()
+    case java()
     
 }
 extension ParsingProtocool{
     private static let parsingUrl:String = "https://github.com"
-    
-    func getParsing() -> Any{
-        guard let main = URL(string: self.url) else{
-             print("Error: \(self.url) doesn't seem to be a valid URL")
-            return false
-        }
-        do{
-            let lolMain = try String(contentsOf: main, encoding: .utf8)
-            let doc = try HTML(html: lolMain, encoding: .utf8)
-            return doc
-        }
-        catch let error {
-            print(error)
-            return false
-        }
+    func getParsing() -> Any{        
+            guard let main = URL(string: self.url) else{
+                print("Error: \(self.url) doesn't seem to be a valid URL")
+                return false
+            }
+            do{
+                
+                let lolMain = try String(contentsOf: main, encoding: .utf8)
+                let doc = try HTML(html: lolMain, encoding: .utf8)
+
+                return doc
+            }
+            catch let error {
+                print(error)
+                return false
+            }
     }
     private var baseUrl:String{
         switch self {
-        case .all(),.swift():
+        case .all(),.swift(),.java():
             return ParsingProtocool.parsingUrl
         }
     }
@@ -45,6 +47,8 @@ extension ParsingProtocool{
             return self.baseUrl+"/trending"
         case .swift():
             return self.baseUrl+"/trending/swift"
+        case .java():
+            return self.baseUrl+"/trending/java"
         }
     }
 }

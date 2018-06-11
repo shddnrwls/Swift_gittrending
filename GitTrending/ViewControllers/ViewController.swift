@@ -20,7 +20,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var todaystararr : Array<String> = Array<String>()
     
     @IBOutlet var navView: UIView!
-    
 
     @IBOutlet var dropBtn: UIButton!
     @IBOutlet var tableView: UITableView!
@@ -28,8 +27,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var mainURL = "https://github.com/trending"
     override func viewDidLoad() {
+        ParsingManager.instance.allTrending()
+        let model:[ParsingModel] = UserDefaults.standard.object(forKey: "ParsingModel") as! [ParsingModel] 
+        print(model[0].contents)
         
         super.viewDidLoad()
+        
         
         getParsing()
         dropDown = DropDown()
