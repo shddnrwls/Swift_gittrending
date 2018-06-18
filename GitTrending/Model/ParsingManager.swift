@@ -55,3 +55,4 @@ class ParsingManager  {
     func swiftTrending(){
     }
 }
+}

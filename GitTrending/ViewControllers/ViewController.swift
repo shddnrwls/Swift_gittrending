@@ -27,9 +27,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var mainURL = "https://github.com/trending"
     override func viewDidLoad() {
-        ParsingManager.instance.allTrending()
-        let model:[ParsingModel] = UserDefaults.standard.object(forKey: "ParsingModel") as! [ParsingModel] 
-        print(model[0].contents)
+//        ParsingManager.instance.allTrending()
+
         
         super.viewDidLoad()
         
@@ -140,14 +139,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func getParsing(){
-        guard let main = URL(string: mainURL) else {
-            print("Error: \(mainURL) doesn't seem to be a valid URL")
+        
+        
+            guard let main = URL(string: self.mainURL) else {
+                print("Error: \(self.mainURL) doesn't seem to be a valid URL")
             return
         }
         do {
+            
             let lolMain = try String(contentsOf: main, encoding: .utf8)
             let doc = try HTML(html: lolMain, encoding: .utf8)
-            
             for product in doc.xpath("//div[@class='explore-content']") {
                 
                 if let olTag = product.at_xpath("ol"){
@@ -155,7 +156,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         if let pr = list.at_xpath("div"){
                             if let se = pr.text, se.contains("/"){
                                 let tri = se.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                                namearr.append(tri)
+                                self.namearr.append(tri)
                                 
                             }
                             
@@ -163,7 +164,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         if let con = list.at_xpath("div[@class = 'py-1']"){
                             if let conn = con.at_xpath("p"){
                                 let connn = conn.text?.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                                constantarr.append(connn!)
+                                self.constantarr.append(connn!)
                             }
                             
                         }
@@ -171,26 +172,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             if let star2 = star.at_xpath("a"){
                                 if let star3 = star2.text , star3.contains("\n"){
                                     let star4 = star3.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                                    stararr.append(star4)
+                                    self.stararr.append(star4)
                                 }
                             }
                             if let todaystar = star.at_xpath("span[@class = 'd-inline-block float-sm-right']"){
                                 if let todaystar2 = todaystar.text , todaystar2.contains("\n"){
                                     let todaystar3 = todaystar2.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                                    todaystararr.append(todaystar3)
+                                    self.todaystararr.append(todaystar3)
                                     
                                 }
                             }
                         }
                     }
                 }
+                tableView.reloadData()
             }
-            tableView.reloadData()
+            
         }catch let error {
             print("Error:\(error)")
         }
-  
-    
     }
 }
 
