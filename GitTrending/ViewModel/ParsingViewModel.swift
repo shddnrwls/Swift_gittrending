@@ -10,6 +10,7 @@ import RxAlamofire
 import RxSwift
 import Kanna
 import Alamofire
+
 enum ParsingStatus {
     case success
     case fail
@@ -20,7 +21,7 @@ class ParsingViewModel{
     var alertObserver:PublishSubject<String> = PublishSubject<String>()
     var statusObserver:PublishSubject<ParsingStatus> = PublishSubject<ParsingStatus>()
     func allTrending() {
-        let model = ParsingManager.instance.allTrending()
+//        let model = ParsingManager.instance.allTrending()
 
     }
 }

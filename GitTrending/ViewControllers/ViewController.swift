@@ -18,7 +18,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var constantarr : Array<String> = Array<String>()
     var stararr : Array<String> = Array<String>()
     var todaystararr : Array<String> = Array<String>()
-    
+    var arr : Array<Array<String>> = Array<Array<String>>()
     @IBOutlet var navView: UIView!
 
     @IBOutlet var dropBtn: UIButton!
@@ -29,11 +29,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
 //        ParsingManager.instance.allTrending()
 
-        
+        print("asd")
         super.viewDidLoad()
-        
-        
-        getParsing()
+        parsing()
+//        getParsing()
         dropDown = DropDown()
         datedropDown = DropDown()
         
@@ -94,8 +93,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             
         }
-
-        
     }
     @objc func datedropDownButton(){
         datedropDown?.show()
@@ -103,21 +100,32 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @objc func dropDownButton(){
         dropDown?.show()
     }
+    func parsing(){
+        DispatchQueue.global(qos: .background).async {
+            self.arr = ParsingManager.instance.all() as! Array<Array<String>>
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TrendTableViewCell
-        cell.titleLbl.text = namearr[indexPath.row]
-        cell.contentText.text = constantarr[indexPath.row]
-        cell.languageLbl.text = "Swift"
-        cell.porkLbl.text = "120"
-        cell.starLbl.text = stararr[indexPath.row]
-        cell.todayLbl.text = todaystararr[indexPath.row]
-        
+//        cell.titleLbl.text = namearr[indexPath.row]
+//        cell.contentText.text = constantarr[indexPath.row]
+        cell.languageLbl.text = dropDown?.selectedItem
+//        cell.porkLbl.text = "120"
+//        cell.starLbl.text = stararr[indexPath.row]
+//        cell.todayLbl.text = todaystararr[indexPath.row]
+        cell.titleLbl.text = arr[0][indexPath.row]
+        cell.contentText.text = arr[1][indexPath.row]
         
         return cell
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return namearr.count
+        return arr.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
@@ -126,7 +134,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         url = "\(url)/\(namearr[indexPath.row])"
         url = url.replacingOccurrences(of: " ", with:"")
         print(url)
-        
         performSegue(withIdentifier: "showRepository", sender: mainURL)
         
     }
